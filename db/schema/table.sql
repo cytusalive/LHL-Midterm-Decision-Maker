@@ -1,4 +1,5 @@
--- Drop and recreate Widgets table (Example)
+-- Drop and recreate
+-- Only use upon table initiation or to reset the tables to a blank slate
 
 DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE users (
@@ -13,4 +14,19 @@ CREATE TABLE poll (
   submit_link VARCHAR(255),
   owner_email VARCHAR(255),
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+);
+
+DROP TABLE IF EXISTS poll_votes CASCADE;
+CREATE TABLE poll_votes (
+  id SERIAL PRIMARY KEY NOT NULL,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  pollOptions_id INTEGER REFERENCES poll_options(id) ON DELETE CASCADE,
+  rank SMALLINT
+);
+
+DROP TABLE IF EXISTS poll_options CASCADE;
+CREATE TABLE poll_options (
+  id SERIAL PRIMARY KEY NOT NULL,
+  poll_id INTEGER REFERENCES poll(id) ON DELETE CASCADE,
+  optionDesc TEXT
 );
