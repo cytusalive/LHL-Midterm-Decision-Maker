@@ -4,5 +4,9 @@ const router  = express.Router();
 
 module.exports = (db) => {
 
+  router.post("/", (req, res) => {
+
+  });
+
   return router;
 };

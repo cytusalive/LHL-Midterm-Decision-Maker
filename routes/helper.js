@@ -13,6 +13,10 @@ router.post("/", (req, res) => {
   INSERT INTO poll (admin_link, submit_link, owner_email)
   VALUES (http://localhost:8080/administrative/${generateRandomString()}, http://localhost:8080/submission/${generateRandomString()}, ${req.body.email})
 
+  INSERT INTO poll_options (optionDesc)
+  VALUES (${req.body.desc})
+
+
   `)
     .then(data => {
       console.log('data: ',data);
@@ -34,6 +38,13 @@ router.post("/", (req, res) => {
 //   submit_link VARCHAR(255),
 //   owner_email VARCHAR(255),
 //   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+// );
+
+// DROP TABLE IF EXISTS poll_options CASCADE;
+// CREATE TABLE poll_options (
+//   id SERIAL PRIMARY KEY NOT NULL,
+//   poll_id INTEGER REFERENCES poll(id) ON DELETE CASCADE,
+//   optionDesc TEXT
 // );
 
 // DROP TABLE IF EXISTS poll_options CASCADE;
