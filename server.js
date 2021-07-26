@@ -40,7 +40,7 @@ const administrativeRoutes = require('./routes/administrative')
 const administrativeBackEnd = require('./routes/administrativeBackEnd')
 const submissionBackEnd = require('./routes/submissionBackEnd')
 const indexRoutes = require('./routes/index');
-const indexBackEnd = require('./routes/indexBackEnd')
+const indexBackEnd = require('./routes/indexBackEnd');
 
 
 
