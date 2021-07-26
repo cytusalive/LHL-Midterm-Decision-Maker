@@ -8,7 +8,14 @@ h2 {
   justify-content: stretch;
   width: 100;
 } */
+label {
+  /* width: 15%; */
+}
 
+input {
+  margin-left: 1em;
+  width: 75%;
+}
 .poll-creation {
   display: flex;
   width: 50%;
@@ -20,21 +27,30 @@ h2 {
 
 .poll-name {
   width: 100%;
+  margin-bottom: 1em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
 .option-fields {
-
+  width: 100%;
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 #add-option {
-
+  margin-bottom: 1em;
 }
 
-button {
-
+#email-field {
+  width: 100%;
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .temp-buttons {

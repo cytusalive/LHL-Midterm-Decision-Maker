@@ -17,7 +17,7 @@
     <%- include('partials/nav-bar.ejs') %>
     <h2>Create your own SuperPOLL!</h2>
     <div class="poll-creation">
-      <form action="/admin/:id" method="get" >
+      <form action="/" method="POST" >
 
         <div class="poll-name">
           <label for="poll-title">Poll Name:</label>
@@ -36,7 +36,7 @@
 
         <button id="add-option" type="button">Add Option...</button>
 
-        <div>
+        <div id="email-field">
           <label for="owner_email">Email Address: </label>
           <input type="email" name="owner_email" placeholder="someone@something.com">
         </div>
