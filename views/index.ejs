@@ -5,24 +5,56 @@
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/body.css">
+
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
   </head>
 
   <body>
-    <h1>Hello World!</h1>
 
+    <%- include('partials/nav-bar.ejs') %>
+    <h2>Create your own SuperPOLL!</h2>
+    <div class="poll-creation">
+      <form action="/admin/:id" method="get" >
+
+        <div class="poll-name">
+          <label for="poll-title">Poll Name:</label>
+          <input type="text" name="Title" placeholder="What is your poll about?">
+        </div>
+
+        <div class="option-fields">
+          <label for="poll-options">Option 1</label>
+          <input type="text" name="poll-option" placeholder="...">
+        </div>
+
+        <div class="option-fields">
+          <label for="poll-options">Option 2</label>
+          <input type="text" name="poll-option" placeholder="...">
+        </div>
+
+        <button id="add-option" type="button">Add Option...</button>
+
+        <div>
+          <label for="owner_email">Email Address: </label>
+          <input type="email" name="owner_email" placeholder="someone@something.com">
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
 
     <!-- buttons for ease of access to administrative page and submission page, delete these later -->
     <br/>
-    <form method="GET" action="/administrative"> <!-- Delete Button on same line 'td' as urls -->
-      <button type = 'submit'>administrative</button>
-    </form>
-    <form method="GET" action="/submission"> <!-- Delete Button on same line 'td' as urls -->
-      <button type = 'submit'>submission</button>
-    </form>
+    <div class="temp-buttons">
+      <form method="GET" action="/administrative"> <!-- Delete Button on same line 'td' as urls -->
+        <button type = 'submit'>administrative</button>
+      </form>
+      <form method="GET" action="/submission"> <!-- Delete Button on same line 'td' as urls -->
+        <button type = 'submit'>submission</button>
+      </form>
+    </div>
     <!-- Delete these buttons later -->
 
 

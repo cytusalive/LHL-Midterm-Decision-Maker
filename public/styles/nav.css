@@ -1,0 +1,44 @@
+nav {
+  height: 120px;
+  width: 100%;
+  background-color: #e3b049;
+  background-image: url("https://www.transparenttextures.com/patterns/lined-paper-2.png");
+  color: #FFFFFF;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+nav .logo {
+  margin-left: 0.5em;
+  font-family: 'Black Ops One', cursive;
+  font-size: 4em;
+  align-self: flex-end;
+}
+
+nav button {
+  width: 15em;
+  font-size: 1.4em;
+  border: none;
+  background: transparent;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+nav button:hover {
+  color: rgb(113, 238, 124);
+}
+
+nav .fas {
+  font-size: 2em;
+  color:lightgreen;
+}
+
+nav button:hover .fas{
+  color: rgb(113, 238, 124);
+}
