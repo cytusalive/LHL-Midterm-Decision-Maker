@@ -4,6 +4,9 @@ const generateRandomString = () => {
 
 
 
+
+// INSERT INTO users is working
+//
 // posting from index, will take in name, email,
 router.post("/", (req, res) => {
   db.query(`
@@ -54,3 +57,22 @@ router.post("/", (req, res) => {
 //   poll_id INTEGER REFERENCES poll(id) ON DELETE CASCADE,
 //   optionDesc TEXT
 // );
+
+
+// insertPoll argument req needs a key: value pair of  email: example@example.com
+const insertPoll = (db, req, res) => {
+  db.query(`
+    INSERT INTO poll (admin_link, submit_link, owner_email)
+    VALUES ('http://localhost:8080/administrative/${generateRandomString()}', 'http://localhost:8080/submission/${generateRandomString()}', '${req.body.email}')
+    `)
+    .then(() => {
+      res.end();
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    })
+}
+
+
