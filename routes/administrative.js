@@ -16,25 +16,5 @@ module.exports = (db) => {
     console.log(req.params.id);
   });
 
-
-
-
-  router.get("/", (req, res) => {
-    db.query(`
-    INSERT INTO users (name) VALUES ('dong');
-    `)
-      .then(data => {
-        const users = data.rows;
-        res.json({ users });
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
-  });
-
-
-
   return router;
 };
