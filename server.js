@@ -54,6 +54,8 @@ app.use('/administrative', administrativeRoutes(db));
 app.use('/administrative', administrativeBackEnd(db));
 app.use('/submission', submissionBackEnd(db));
 app.use('/', indexRoutes(db));
+app.use('/', indexBackEnd(db));
+
 
 
 
