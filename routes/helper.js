@@ -7,6 +7,7 @@ const generateRandomString = () => {
 // posting from index, will take in name, email,
 router.post("/", (req, res) => {
   db.query(`
+
   INSERT INTO users (name)
   VALUES ('${req.body.name}')
 
