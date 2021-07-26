@@ -16,8 +16,15 @@
 
     <%- include('partials/nav-bar.ejs') %>
     <h2>Create your own SuperPOLL!</h2>
-    <div class="poll-creation">
-      <form action="/" method="POST" >
+    <form action="/" method="POST" class="poll-creation">
+      <label for="poll-title">Poll Name:</label>
+      <input type="text" name="poll_title" placeholder="What is your poll about?">
+      <label for="poll-options">Option 1</label>
+      <input type="text" name="poll_options" placeholder="name">
+      <input type="text" name="option_desc" placeholder="description (optional)">
+      <label for="poll-options">Option 2</label>
+      <input type="text" name="poll_options" placeholder="name">
+      <input type="text" name="option_desc" placeholder="description (optional)">
 
         <div class="poll-name">
           <label for="poll-title">Poll Name:</label>

@@ -13,7 +13,7 @@ CREATE TABLE poll (
   admin_link VARCHAR(255),
   submit_link VARCHAR(255),
   owner_email VARCHAR(255),
-  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+  poll_title VARCHAR(255)
 );
 
 DROP TABLE IF EXISTS poll_options CASCADE;
