@@ -16,16 +16,17 @@ module.exports = (db) => {
 
     // poll_id = 1 needs to be dynamic use url
     db.query(`
-    SELECT COUNT(*)
+    SELECT optionTitle
     FROM poll_options
     JOIN poll ON poll.id = poll_id
     WHERE admin_link LIKE '%${req.params.id}';
     `)
     .then((result) => {
-      const pollNum = result.rows[0].count;
+      const pollNum = result.rows;
       console.log(pollNum);
-      for (let i = 0; i < pollNum; i++) {
+      for (let i = 0; i < pollNum.length; i++) {
         console.log(i);
+        console.log(pollNum[i]);
 
 
         // sum rank of each poll option
@@ -36,6 +37,7 @@ module.exports = (db) => {
         WHERE poll_options.id = ${i + 1};
         `)
         .then((result) => {
+          console.log(pollNum[i]);
           console.log(result.rows);
         })
 
@@ -77,3 +79,30 @@ module.exports = (db) => {
 // INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (7, 1, 3, 1);
 // INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (8, 2, 3, 3);
 // INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (9, 3, 3, 3);
+
+    // db.query(`
+    // SELECT COUNT(*)
+    // FROM poll_options
+    // JOIN poll ON poll.id = poll_id
+    // WHERE admin_link LIKE '%${req.params.id}';
+    // `)
+    // .then((result) => {
+    //   const pollNum = result.rows[0].count;
+    //   console.log(pollNum);
+    //   for (let i = 0; i < pollNum; i++) {
+    //     console.log(i);
+
+
+    //     // sum rank of each poll option
+    //     db.query(`
+    //     SELECT sum(rank)
+    //     FROM poll_votes
+    //     JOIN poll_options ON poll_options.id = pollOptions_id
+    //     WHERE poll_options.id = ${i + 1};
+    //     `)
+    //     .then((result) => {
+    //       console.log(result.rows);
+    //     })
+
+    //   }
+    // })
