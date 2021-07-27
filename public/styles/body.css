@@ -1,23 +1,10 @@
-
 h2 {
  margin: 1.5em;
 }
 
-/* input {
-  display: flex;
-  justify-content: stretch;
-  width: 100;
-} */
-/* label {
-  width: 10%;
-} */
-
 input {
-  /* margin-left: 1em; */
-  /* width: 75%; */
   height: 2em;
 }
-
 
 .poll-creation {
   display: flex;
@@ -43,7 +30,6 @@ input {
 }
 
 .option-fields {
-  /* width: 75%; */
   height: 2em;
   align-items: baseline;
   margin-bottom: 1em;
@@ -65,10 +51,10 @@ input {
 .name-field {
   width: 48%;
 }
+
 .description-field {
   width: 48%;
 }
-
 
 #add-option {
   display: flex;
