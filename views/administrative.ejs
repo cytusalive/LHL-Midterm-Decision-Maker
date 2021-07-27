@@ -21,6 +21,15 @@
   <%- include('partials/nav-bar.ejs') %>
   <h2>View Results of your SuperPOLL!</h2>
 
+  <form>
+    <div>
+      <% for (const rank of ranks) { %>
+        <br/>
+          <%= rank.optiontitle %>
+          <%= rank.sum %>
+      <% } %>
+    </div>
+  </form>
 
     <!-- buttons for ease of access to administrative page and submission page, delete these later -->
     <br/>
@@ -34,6 +43,6 @@
 
 
 
-
+    <script src="/routes/administrative.js"></script>
 </body>
 </html>

@@ -66,7 +66,7 @@ const insertPollOptions = (db, options, res) => {
         .json({ error: err.message });
     })
   }
-  
+
 }
 
 // insertPollVotes req needs a key: value(int) pair of rank: 10
