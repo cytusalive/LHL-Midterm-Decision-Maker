@@ -34,9 +34,28 @@ const insertUser = (db, req, res) => {
 // insertPoll argument req needs a key: value(string) pair of email: example@example.com
 // code not complete need to reference user_id in poll to user.id in users
 const insertPoll = (db, req, res) => {
-  db.query(`
-    INSERT INTO poll (admin_link, submit_link, owner_email)
-    VALUES ('http://localhost:8080/administrative/${generateRandomString()}', 'http://localhost:8080/submission/${generateRandomString()}', '${req.body.email}')
+  const newLink = generateRandomString()
+  return db.query(`
+      INSERT INTO poll (admin_link, submit_link, owner_email, poll_title)
+      VALUES ('http://localhost:8080/administrative/${newLink}', 'http://localhost:8080/submission/${newLink}', '${req.body['owner_email']}', '${req.body['poll_title']}');
+      `)
+      .then(() => {
+        return db.query(`SELECT id FROM poll WHERE admin_link LIKE '%${newLink}%'`).then(result => result.rows);
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      })
+}
+
+// insertPollOptions req needs a key: value(string) pair of title: Titanic and desc: Sank
+// code not complete need to reference poll_id in pollOptions with poll.id in polls
+const insertPollOptions = (db, options, res) => {
+  for (const option of options) {
+    db.query(`
+      INSERT INTO poll_options (optionTitle, optionDesc)
+      VALUES ('${option}', NULL)
     `)
     .then(() => {
       res.end();
@@ -46,23 +65,8 @@ const insertPoll = (db, req, res) => {
         .status(500)
         .json({ error: err.message });
     })
-}
-
-// insertPollOptions req needs a key: value(string) pair of title: Titanic and desc: Sank
-// code not complete need to reference poll_id in pollOptions with poll.id in polls
-const insertPollOptions = (db, req, res) => {
-  db.query(`
-  INSERT INTO poll_options (optionTitle, optionDesc)
-  VALUES ('${req.body.title}', '${req.body.desc}')
-  `)
-    .then(() => {
-      res.end();
-    })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    })
+  }
+  
 }
 
 // insertPollVotes req needs a key: value(int) pair of rank: 10
