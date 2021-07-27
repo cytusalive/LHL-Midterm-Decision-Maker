@@ -5,7 +5,7 @@
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/body.css">
+    <link rel="stylesheet" href="/styles/body.css" type="text/css" >
 
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
@@ -17,40 +17,42 @@
     <%- include('partials/nav-bar.ejs') %>
     <h2>Create your own SuperPOLL!</h2>
     <form action="/" method="POST" class="poll-creation">
-      <label for="poll-title">Poll Name:</label>
-      <input type="text" name="poll_title" placeholder="What is your poll about?">
-      <label for="poll-options">Option 1</label>
-      <input type="text" name="poll_options" placeholder="name">
-      <input type="text" name="option_desc" placeholder="description (optional)">
-      <label for="poll-options">Option 2</label>
-      <input type="text" name="poll_options" placeholder="name">
-      <input type="text" name="option_desc" placeholder="description (optional)">
 
-        <div class="poll-name">
-          <label for="poll-title">Poll Name:</label>
-          <input type="text" name="Title" placeholder="What is your poll about?">
+      <div class="poll-name">
+        <label for="poll-title">Poll Name:</label>
+        <input class="input-fields" type="text" name="poll_title" placeholder="What is your poll about?">
+      </div>
+
+      <div class="option-fields">
+        <label for="options-label">Option 1</label>
+        <div class="options-input">
+          <input class="name-field" type="text" name="poll_options" placeholder="name">
+          <input class="description-field" type="text" name="option_desc" placeholder="description (optional)">
         </div>
+      </div>
 
-        <div class="option-fields">
-          <label for="poll-options">Option 1</label>
-          <input type="text" name="poll-option" placeholder="...">
+      <div class="option-fields">
+        <label for="options-label">Option 2</label>
+        <div class="options-input">
+          <input class="name-field" type="text" name="poll_options" placeholder="name">
+          <input class="description-field" type="text" name="option_desc" placeholder="description (optional)">
         </div>
+      </div>
 
-        <div class="option-fields">
-          <label for="poll-options">Option 2</label>
-          <input type="text" name="poll-option" placeholder="...">
-        </div>
+      <div id="add-option">
+        <button class="buttons" id="add-button" type="button">Add Option...</button>
+      </div>
 
-        <button id="add-option" type="button">Add Option...</button>
+      <div id="email-field">
+        <label for="owner_email">Email Address: </label>
+        <input class="input-fields" type="email" name="owner_email" placeholder="someone@something.com">
+      </div>
 
-        <div id="email-field">
-          <label for="owner_email">Email Address: </label>
-          <input type="email" name="owner_email" placeholder="someone@something.com">
-        </div>
+      <div id="submit-container">
+        <button class="buttons" id="submit-button" type="submit">Submit</button>
+      </div>
 
-        <button type="submit">Submit</button>
       </form>
-    </div>
 
     <!-- buttons for ease of access to administrative page and submission page, delete these later -->
     <br/>
