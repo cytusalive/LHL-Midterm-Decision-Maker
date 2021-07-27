@@ -16,32 +16,21 @@ module.exports = (db) => {
 
     // poll_id = 1 needs to be dynamic use url
     db.query(`
-    SELECT optionTitle
-    FROM poll_options
+    SELECT poll_options.optionTitle, sum(rank)
+    FROM poll_votes
+    JOIN poll_options ON poll_options.id = pollOptions_id
     JOIN poll ON poll.id = poll_id
-    WHERE admin_link LIKE '%${req.params.id}';
+    WHERE admin_link LIKE '%${req.params.id}'
+    GROUP BY optionTitle
+    ORDER BY sum DESC;
     `)
     .then((result) => {
-      const pollNum = result.rows;
-      console.log(pollNum);
-      for (let i = 0; i < pollNum.length; i++) {
-        console.log(i);
-        console.log(pollNum[i]);
-
-
-        // sum rank of each poll option
-        db.query(`
-        SELECT sum(rank)
-        FROM poll_votes
-        JOIN poll_options ON poll_options.id = pollOptions_id
-        WHERE poll_options.id = ${i + 1};
-        `)
-        .then((result) => {
-          console.log(pollNum[i]);
-          console.log(result.rows);
-        })
-
-      }
+      console.log(result.rows);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
     })
 
 
@@ -80,29 +69,47 @@ module.exports = (db) => {
 // INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (8, 2, 3, 3);
 // INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (9, 3, 3, 3);
 
-    // db.query(`
-    // SELECT COUNT(*)
-    // FROM poll_options
-    // JOIN poll ON poll.id = poll_id
-    // WHERE admin_link LIKE '%${req.params.id}';
-    // `)
-    // .then((result) => {
-    //   const pollNum = result.rows[0].count;
-    //   console.log(pollNum);
-    //   for (let i = 0; i < pollNum; i++) {
-    //     console.log(i);
+// db.query(`
+//     SELECT optionTitle
+//     FROM poll_options
+//     JOIN poll ON poll.id = poll_id
+//     WHERE admin_link LIKE '%${req.params.id}';
+//     `)
+//     .then((result) => {
+//       const titles = result.rows;
+//       for (title of titles) {
+//         db.query(`
+//         SELECT sum(rank)
+//         FROM poll_votes
+//         JOIN poll_options ON poll_options.id = pollOptions_id
+//         WHERE optionTitle LIKE '${title.optiontitle}';
+//         `)
+//         .then((result) => {
+
+//           const optionTitle = title;
+//           const rank = result.rows[0]
+//           const templateVars = { optionTitle , rank};
+//           console.log(optionTitle)
+//           console.log(rank);
+//         })
+//       }
+//     })
+//     .catch(err => {
+//       res
+//         .status(500)
+//         .json({ error: err.message });
+//     })
 
 
-    //     // sum rank of each poll option
-    //     db.query(`
-    //     SELECT sum(rank)
-    //     FROM poll_votes
-    //     JOIN poll_options ON poll_options.id = pollOptions_id
-    //     WHERE poll_options.id = ${i + 1};
-    //     `)
-    //     .then((result) => {
-    //       console.log(result.rows);
-    //     })
+// SELECT poll_options.optionTitle, sum(rank)
+//         FROM poll_votes
+//         JOIN poll_options ON poll_options.id = pollOptions_id
+//         JOIN poll ON poll.id = poll_id
+//         WHERE admin_link LIKE '%${req.params.id}'
+//         GROUP BY optionTitle
+//         ORDER BY sum DESC;
 
-    //   }
-    // })
+// SELECT optionTitle
+//     FROM poll_options
+//     JOIN poll ON poll.id = poll_id
+//     WHERE admin_link LIKE '%${req.params.id}';
