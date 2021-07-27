@@ -9,16 +9,16 @@ INSERT INTO poll_options (id, poll_id, optionTitle, optionDesc) VALUES (2, 1, 'c
 INSERT INTO poll_options (id, poll_id, optionTitle, optionDesc) VALUES (3, 1, 'ratatouille', 'health safety violations');
 
 -- poll votes for titanic
-INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (1, 1, 1, 3)
-INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (2, 2, 1, 2)
-INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (3, 3, 1, 1)
+INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (1, 1, 1, 3);
+INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (2, 2, 1, 2);
+INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (3, 3, 1, 1);
 
 -- poll votes for charlottes web
-INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (4, 1, 2, 2)
-INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (5, 2, 2, 1)
-INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (6, 3, 2, 2)
+INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (4, 1, 2, 2);
+INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (5, 2, 2, 1);
+INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (6, 3, 2, 2);
 
 -- poll votes for ratatouille
-INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (7, 1, 3, 1)
-INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (8, 2, 3, 3)
-INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (9, 3, 3, 3)
+INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (7, 1, 3, 1);
+INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (8, 2, 3, 3);
+INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (9, 3, 3, 3);
