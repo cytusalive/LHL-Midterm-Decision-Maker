@@ -1,0 +1,34 @@
+/* * * ELEMENTS * * */
+body {
+  font-family: 'Baloo Chettan 2', Georgia, 'Times New Roman', Times, serif;
+  color: rgba(0, 0, 0, 0.76);
+}
+
+h2 {
+ margin: 1.5em;
+ font-size: 2em;
+}
+
+label {
+  font-size: 1.25em;
+}
+input {
+  height: 2.5em;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: #e3b049;
+  opacity: 75%;
+  box-shadow: 2px 2px grey;
+  font-size: 1.25em;
+}
+
+input:hover {
+  background-color: #e2c895;
+}
+
+
+.temp-buttons {
+  display: flex;
+  width: 25%;
+  justify-content: space-evenly;
+}
