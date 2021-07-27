@@ -1,3 +1,4 @@
+/* * * ELEMENTS * * */
 body {
   font-family: 'Baloo Chettan 2', Georgia, 'Times New Roman', Times, serif;
   color: rgba(0, 0, 0, 0.76);
@@ -128,6 +129,5 @@ input:hover {
 .temp-buttons {
   display: flex;
   width: 25%;
-  /* margin-left: 1.5em; */
   justify-content: space-evenly;
 }
