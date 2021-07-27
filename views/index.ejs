@@ -12,6 +12,8 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+
+    <script type="text/javascript" src="/scripts/add_option.js"></script>
   </head>
 
   <body>
@@ -25,21 +27,24 @@
         <input class="input-fields" type="text" name="poll_title" placeholder="What is your poll about?">
       </div>
 
-      <div class="option-fields">
-        <label for="options-label">Option 1:</label>
-        <div class="options-input">
-          <input class="name-field" type="text" name="poll_options" placeholder="name">
-          <input class="description-field" type="text" name="option_desc" placeholder="description (optional)">
+      <div id="outer-option-fields">
+        <div class="option-fields">
+          <label for="options-label">Option 1:</label>
+          <div class="options-input">
+            <input class="name-field" type="text" name="poll_options" placeholder="name">
+            <input class="description-field" type="text" name="option_desc" placeholder="description (optional)">
+          </div>
         </div>
-      </div>
 
-      <div class="option-fields">
-        <label for="options-label">Option 2:</label>
-        <div class="options-input">
-          <input class="name-field" type="text" name="poll_options" placeholder="name">
-          <input class="description-field" type="text" name="option_desc" placeholder="description (optional)">
+        <div class="option-fields">
+          <label for="options-label">Option 2:</label>
+          <div class="options-input">
+            <input class="name-field" type="text" name="poll_options" placeholder="name">
+            <input class="description-field" type="text" name="option_desc" placeholder="description (optional)">
+          </div>
         </div>
       </div>
+      
 
       <div id="add-option">
         <button class="buttons" id="add-button" type="button">Add Option...</button>
