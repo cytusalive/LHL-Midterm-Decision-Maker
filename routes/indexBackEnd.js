@@ -45,7 +45,7 @@ module.exports = (db) => {
       mg.messages().send(data, function (error, body) {
       });
     })
-    res.redirect(`/submission/${newLink}`);
+    setTimeout(() => {res.redirect(`/submission/${newLink}`);}, 100);
 
     // VIEW DATABASE
     setTimeout(() => {
