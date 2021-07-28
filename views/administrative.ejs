@@ -6,14 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>SuperPOLLs - View Results</title>
+  <title>SuperPOLLs - Vote on a Poll</title>
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/public/styles/administrative-body.css" type="text/css" >
+  <link rel="stylesheet" href="/styles/body.css" type="text/css" >
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&display=swap" rel="stylesheet">
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
 
 </head>
 
@@ -32,12 +34,14 @@
 
     <!-- buttons for ease of access to administrative page and submission page, delete these later -->
     <br/>
+  <div class="temp-buttons">
     <form method="GET" action="/"> <!-- Delete Button on same line 'td' as urls -->
       <button type = 'submit'>home</button>
     </form>
     <form method="GET" action="/submission"> <!-- Delete Button on same line 'td' as urls -->
       <button type = 'submit'>submission</button>
     </form>
+  </div>
     <!-- Delete these buttons later -->
 
 
