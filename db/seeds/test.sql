@@ -22,3 +22,5 @@ INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (6, 3, 2, 2);
 INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (7, 1, 3, 1);
 INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (8, 2, 3, 3);
 INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (9, 3, 3, 3);
+
+INSERT INTO poll_votes (id, user_id, pollOptions_id, rank) VALUES (11, 3, 3, 3);
