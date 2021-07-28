@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>SuperPOLLs - View Results</title>
+  <title>SuperPOLLs - Vote on a Poll</title>
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -22,7 +22,6 @@
 <body>
   <%- include('partials/nav-bar.ejs') %>
   <h2>View Results of your SuperPOLL!</h2>
-
   <form>
     <div>
       <% for (const rank of ranks) { %>
@@ -44,12 +43,14 @@
 
     <!-- buttons for ease of access to administrative page and submission page, delete these later -->
     <br/>
+  <div class="temp-buttons">
     <form method="GET" action="/"> <!-- Delete Button on same line 'td' as urls -->
       <button type = 'submit'>home</button>
     </form>
     <form method="GET" action="/submission"> <!-- Delete Button on same line 'td' as urls -->
       <button type = 'submit'>submission</button>
     </form>
+  </div>
     <!-- Delete these buttons later -->
 
 

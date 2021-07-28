@@ -12,6 +12,7 @@ h2 {
 label {
   font-size: 1.25em;
 }
+
 input {
   height: 2.5em;
   border-radius: 5px;
@@ -87,7 +88,7 @@ input:hover {
 .buttons {
   color: white;
   width: 7em;
-  height: 2em;
+  height: 2.5em;
 }
 
 .buttons:hover {

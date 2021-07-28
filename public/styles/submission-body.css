@@ -1,0 +1,35 @@
+
+#username-label {
+  font-size: 1.25em;
+}
+
+#username-input {
+  width: 100%;
+  height: 2em;
+  margin-bottom: 2.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.option {
+  font-size: 1.25em;
+}
+
+.input-fields {
+  width: 70%;
+}
+
+.submission-form {
+  display: flex;
+  width: 75%;
+  justify-items: center;
+  flex-direction: column;
+  margin: auto;
+  padding: 0.5em;
+}
+
+.buttons {
+  height: 2em;
+}

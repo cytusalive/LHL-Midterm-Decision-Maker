@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>SuperPOLLs - Vote on a Poll</title>
+
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-
+  <link rel="stylesheet" href="/styles/body.css" type="text/css" >
+  <link rel="stylesheet" href="/styles/submission-body.css" type="text/css" >
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&display=swap" rel="stylesheet">
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
+  <!-- <script type="text/javascript" src="/scripts/app.js"></script> -->
 
-  <title>SuperPOLLs - Vote on a Poll</title>
+
 </head>
 <body>
   <%- include('partials/nav-bar.ejs') %>
   <h2>Vote on a SuperPOLL!</h2>
-  <form>
+  <form class="submission-form">
     <div id="choices">
       <% for (const option of options) { %>
         <div class="option">
@@ -28,11 +32,10 @@
           <%= option.optiondesc %>
         </div>
       <% } %>
-
-
     </div>
+
       <div id="username-input">
-        <label for="username">Please provide your name: </label>
+        <label id="username-label" for="username">Please provide your name: </label>
         <input class="input-fields" type="text" name="username" placeholder="name">
       </div>
 
