@@ -20,7 +20,7 @@ DROP TABLE IF EXISTS poll_options CASCADE;
 CREATE TABLE poll_options (
   id SERIAL PRIMARY KEY NOT NULL,
   poll_id INTEGER REFERENCES poll(id) ON DELETE CASCADE,
-  optionTitle VARCHAR(255) NOT NULL,
+  optionTitle VARCHAR(255) NOT NULL CHECK(optionTitle != ''),
   optionDesc TEXT
 );
 
