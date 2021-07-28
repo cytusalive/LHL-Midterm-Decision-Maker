@@ -1,6 +1,6 @@
 $(document).ready(() => {
   let optionCounter = 2;
-  $("#add-option").on("click", () => {
+  $("#add-button").on("click", () => {
     console.log("clicked");
     optionCounter += 1;
     document.getElementById("outer-option-fields").innerHTML += `
