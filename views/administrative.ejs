@@ -31,6 +31,15 @@
           <%= rank.sum %>
       <% } %>
     </div>
+    <div>
+      <% for (const user of users) { %>
+        <br/>
+          <%= user.name %>
+          <%= user.rank %>
+          <%= user.optiontitle %>
+
+      <% } %>
+    </div>
   </form>
 
     <!-- buttons for ease of access to administrative page and submission page, delete these later -->
