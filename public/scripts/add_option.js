@@ -1,8 +1,9 @@
 $(document).ready(() => {
   let optionCounter = 2;
   $("#add-option").on("click", () => {
+    console.log("clicked");
     optionCounter += 1;
-    document.getElementById("new-option-field").innerHTML += `
+    document.getElementById("outer-option-fields").innerHTML += `
       <div class="option-fields">
         <label for="options-label">Option ${optionCounter}:</label>
         <div class="options-input">
