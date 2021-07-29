@@ -24,16 +24,18 @@
 </head>
 <body>
   <%- include('partials/nav-bar.ejs') %>
-  <header>Vote on a SuperPOLL!</header>
+  <h2 id="vote">Vote on a SuperPOLL!</h2>
 
   <form class="submission-form" action="/submission" method="POST">
-    <span class="poll-title">
-      <b><%= poll_title %></b>
-    </span>
+    <div id="poll-title">
+      <div id='selected-title'><%= poll_title %></div>
+      <p id="instructions">drag to your desired order from top to bottom</p>
+    </div>
+
     <div id="choices">
       <% for (const option of options) { %>
           <div class="option" id=<%= option.id %>>
-            <%= option.optiontitle %>
+            <%= option.optiontitle %> <div></div>
             <%= option.optiondesc %>
           </div>
       <% } %>
