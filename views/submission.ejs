@@ -19,12 +19,17 @@
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <!-- <script type="text/javascript" src="/scripts/app.js"></script> -->
 
-
+  <script type="text/javascript" src="/scripts/submission_ordering.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
   <%- include('partials/nav-bar.ejs') %>
-  <h2>Vote on a SuperPOLL!</h2>
+  <header>Vote on a SuperPOLL!</header>
+  
   <form class="submission-form">
+    <span class="poll-title">
+      <b><%= poll_title %></b>
+    </span>
     <div id="choices">
       <% for (const option of options) { %>
         <div class="option">
@@ -47,12 +52,14 @@
 
     <!-- buttons for ease of access to administrative page and submission page, delete these later -->
     <br/>
-    <form method="GET" action="/"> <!-- Delete Button on same line 'td' as urls -->
-      <button type = 'submit'>home</button>
-    </form>
-    <form method="GET" action="/administrative/biwt0c"> <!-- Delete Button on same line 'td' as urls -->
-      <button type = 'submit'>administrative</button>
-    </form>
+    <div class="temp-buttons">
+      <form method="GET" action="/"> <!-- Delete Button on same line 'td' as urls -->
+        <button type = 'submit'>home</button>
+      </form>
+      <form method="GET" action="/administrative/123"> <!-- Delete Button on same line 'td' as urls -->
+        <button type = 'submit'>administrative</button>
+      </form>
+  </div>
     <!-- Delete these buttons later -->
 
 

@@ -13,12 +13,33 @@
   align-items: baseline;
 }
 
+header {
+  display: flex;
+  font-size: 2em;
+  padding: 0.25em;
+  margin-left: 1em;
+}
+
+#choices {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
 .option {
+  border: 1px dotted rgb(192, 126, 41);
+  background-color: aliceblue;
+  padding: 1em;
   font-size: 1.25em;
 }
 
 .input-fields {
   width: 70%;
+}
+
+.poll-title {
+  display: flex;
+  justify-content: center;
+  font-size: 2.5em;
 }
 
 .submission-form {
