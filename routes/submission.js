@@ -23,6 +23,7 @@ module.exports = (db) => {
   });
 
   router.post("/", (req, res) => {
+   
     const pollOptions = req.body.optionRanks;
     const username = req.body.$username;
     const name = username.replace('username=','');
@@ -36,13 +37,13 @@ module.exports = (db) => {
       .then((result) => {
         console.log('req.params.id', req.params.id);
         const userid = result.rows[0]['id']
-        for (pollOption in pollOptions) {
-          let rank = Number(pollOptions[pollOption]);
-          const pollNum = Number(pollOption) + 1;
+        pollOptions.forEach(option => {
+          let rank = Number(option[1]);
+          const pollOption_id = Number(option[0]);
           db.query(`
-          INSERT INTO poll_votes (user_id, pollOptions_id, rank) VALUES (${userid}, ${pollNum}, ${rank})
+          INSERT INTO poll_votes (user_id, pollOptions_id, rank) VALUES (${userid}, ${pollOption_id}, ${rank})
           `)
-        }
+        });
       })
   })
 
