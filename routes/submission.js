@@ -28,18 +28,19 @@ module.exports = (db) => {
     const name = username.replace('username=','');
 
     db.query(`
-      INSERT INTO users (name) VALUES ('${name}');
+      INSERT INTO users (name) VALUES ('${name}')
+      RETURNING id;
       `)
       .then((result) => {
+        const userid = result.rows[0]['id']
         for (pollOption in pollOptions) {
-          let rank = pollOptions[pollOption];
+          let rank = Number(pollOptions[pollOption]);
+          const pollNum = Number(pollOption) + 1;
           db.query(`
-          INSERT INTO poll_votes (user_id, pollOptions_id, rank) VALUES (LAST_INSERT_ID(), ${pollOption}, ${rank})
+          INSERT INTO poll_votes (user_id, pollOptions_id, rank) VALUES (${userid}, ${pollNum}, ${rank})
           `)
         }
       })
-
-
   })
 
   return router;
