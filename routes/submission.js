@@ -45,17 +45,3 @@ module.exports = (db) => {
 
   return router;
 };
-
-// DROP TABLE IF EXISTS users CASCADE;
-// CREATE TABLE users (
-//   id SERIAL PRIMARY KEY NOT NULL,
-//   name VARCHAR(255) NOT NULL
-// );
-
-// DROP TABLE IF EXISTS poll_votes CASCADE;
-// CREATE TABLE poll_votes (
-//   id SERIAL PRIMARY KEY NOT NULL,
-//   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-//   pollOptions_id INTEGER REFERENCES poll_options(id) ON DELETE CASCADE,
-//   rank SMALLINT
-// );
