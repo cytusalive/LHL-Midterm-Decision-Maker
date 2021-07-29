@@ -2,7 +2,7 @@ $(document).ready(() => {
   $( "#choices" ).disableSelection();
   $( "#choices" ).sortable();
 
-  $("#submit-container").click(function(event) { 
+  $("#submit-container").click(function(event) {
     event.preventDefault();
     let itemOrder = $('#choices').sortable("toArray");
     optionRanks = {};
@@ -10,7 +10,10 @@ $(document).ready(() => {
       optionRanks[itemOrder[i]] = i;
     }
     console.log(optionRanks);
-    $.post("/submission", optionRanks, () => {})
+    let $username = $('#username').serialize();
+    console.log($username);
+
+    $.post("/submission", { optionRanks, $username}, () => {})
   });
 
 })

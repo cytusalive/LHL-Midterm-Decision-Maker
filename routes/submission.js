@@ -22,10 +22,39 @@ module.exports = (db) => {
     })
   });
 
-  router.post("/submission/:id", (req, res) => {
-    console.log(req.params.id);
-    console.log(req.body);
+  router.post("/", (req, res) => {
+    const pollOptions = req.body.optionRanks;
+    const username = req.body.$username;
+    const name = username.replace('username=','');
+
+    db.query(`
+      INSERT INTO users (name) VALUES ('${name}');
+      `)
+      .then((result) => {
+        for (pollOption in pollOptions) {
+          let rank = pollOptions[pollOption];
+          db.query(`
+          INSERT INTO poll_votes (user_id, pollOptions_id, rank) VALUES (LAST_INSERT_ID(), ${pollOption}, ${rank})
+          `)
+        }
+      })
+
+
   })
 
   return router;
 };
+
+// DROP TABLE IF EXISTS users CASCADE;
+// CREATE TABLE users (
+//   id SERIAL PRIMARY KEY NOT NULL,
+//   name VARCHAR(255) NOT NULL
+// );
+
+// DROP TABLE IF EXISTS poll_votes CASCADE;
+// CREATE TABLE poll_votes (
+//   id SERIAL PRIMARY KEY NOT NULL,
+//   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+//   pollOptions_id INTEGER REFERENCES poll_options(id) ON DELETE CASCADE,
+//   rank SMALLINT
+// );
