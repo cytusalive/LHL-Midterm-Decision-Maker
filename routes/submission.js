@@ -20,8 +20,12 @@ module.exports = (db) => {
         .status(500)
         .json({ error: err.message });
     })
-
   });
+
+  router.post("/submission/:id", (req, res) => {
+    console.log(req.params.id);
+    console.log(req.body);
+  })
 
   return router;
 };

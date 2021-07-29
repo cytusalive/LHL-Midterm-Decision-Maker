@@ -26,16 +26,16 @@
   <%- include('partials/nav-bar.ejs') %>
   <header>Vote on a SuperPOLL!</header>
   
-  <form class="submission-form">
+  <form class="submission-form" action="/submission" method="POST">
     <span class="poll-title">
       <b><%= poll_title %></b>
     </span>
     <div id="choices">
       <% for (const option of options) { %>
-        <div class="option">
-          <%= option.optiontitle %>
-          <%= option.optiondesc %>
-        </div>
+          <div class="option" id=<%= option.id %>>
+            <%= option.optiontitle %>
+            <%= option.optiondesc %>
+          </div>
       <% } %>
     </div>
 
