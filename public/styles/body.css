@@ -21,7 +21,9 @@ input {
   opacity: 75%;
   box-shadow: 2px 2px grey;
   font-size: 1.25em;
+  padding: 0.5em;
 }
+
 
 input:hover {
   background-color: #e2c895;

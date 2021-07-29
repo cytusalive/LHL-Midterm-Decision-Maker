@@ -1,3 +1,28 @@
+#vote {
+  margin: 2em 2em 0 2em;
+}
+
+
+#poll-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
+
+#selected-title {
+  display: flex;
+  font-size: 2em;
+  border-bottom: solid;
+  border-width: 2px;
+}
+
+#instrucitons {
+  margin-bottom: 4em;
+}
+
 #username-label {
   font-size: 1.25em;
 }
@@ -13,7 +38,14 @@
 }
 
 .option {
+  margin-bottom: 1.5em;
   height: 2.5em;
+  padding: 0.5em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-style: solid;
   border-radius: 5px;
   border-width: 1px;
   border-color: #e3b049;
@@ -40,5 +72,6 @@
 }
 
 .buttons {
-  height: 2em;
+  margin-top: 1em;
+  height: 2.5em;
 }
