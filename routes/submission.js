@@ -22,9 +22,25 @@ module.exports = (db) => {
     })
   });
 
-  router.post("/submission/:id", (req, res) => {
-    console.log(req.params.id);
-    console.log(req.body);
+  router.post("/", (req, res) => {
+    const pollOptions = req.body.optionRanks;
+    const username = req.body.$username;
+    const name = username.replace('username=','');
+
+    db.query(`
+      INSERT INTO users (name) VALUES ('${name}')
+      RETURNING id;
+      `)
+      .then((result) => {
+        const userid = result.rows[0]['id']
+        for (pollOption in pollOptions) {
+          let rank = Number(pollOptions[pollOption]);
+          const pollNum = Number(pollOption) + 1;
+          db.query(`
+          INSERT INTO poll_votes (user_id, pollOptions_id, rank) VALUES (${userid}, ${pollNum}, ${rank})
+          `)
+        }
+      })
   })
 
   return router;
