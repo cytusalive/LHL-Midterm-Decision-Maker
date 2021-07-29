@@ -11,6 +11,7 @@ module.exports = (db) => {
 
   // renders administrative.ejs in administrative/id dynamically
   router.get("/:id", (req, res) => {
+    console.log(req.params.id);
     db.query(`
     SELECT poll_options.optionTitle, sum(rank)
     FROM poll_votes
@@ -21,6 +22,7 @@ module.exports = (db) => {
     ORDER BY sum DESC;
     `)
     .then((result) => {
+      console.log(result);
       const ranks = result.rows;
       // displays user and who they voted for
       db.query(`
@@ -34,6 +36,8 @@ module.exports = (db) => {
       `)
       .then ((result) => {
         const users = result.rows;
+        console.log(ranks);
+        console.log(users);
         const templateVars = { ranks: ranks, users: users }
         res.render('administrative', templateVars);
       })
