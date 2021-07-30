@@ -32,7 +32,8 @@ module.exports = (db) => {
       JOIN poll_options ON pollOptions_id = poll_options.id
       JOIN poll ON poll_id = poll.id
       WHERE admin_link LIKE '%${req.params.id}'
-      GROUP BY users.name, poll_votes.rank, poll_options.optionTitle;
+      GROUP BY users.name, poll_votes.rank, poll_options.optionTitle
+      ORDER BY users.name;
       `)
       .then ((result) => {
         const users = result.rows;
