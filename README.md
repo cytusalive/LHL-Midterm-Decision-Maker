@@ -8,6 +8,9 @@ SuperPOLLs - Decision Maker
 - ranking is based on borda count, where the highest ranking gets `total options - 1` points and each subsequent ranking gets 1 less points until the lowest ranking gets 0 points.
 
 ## Screenshots
+![Front page](https://github.com/cytusalive/LHL-Midterm-Decision-Maker/blob/master/screenshots/Front%20page%20create%20poll.png)
+![Submission page](https://github.com/cytusalive/LHL-Midterm-Decision-Maker/blob/master/screenshots/Submission%20page.png)
+![Administrative page](https://github.com/cytusalive/LHL-Midterm-Decision-Maker/blob/master/screenshots/Administrative%20results%20page.png)
 
 ## Setting Up
 
