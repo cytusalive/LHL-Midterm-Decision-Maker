@@ -23,22 +23,33 @@
 <body>
   <%- include('partials/nav-bar.ejs') %>
   <h2>View Results of your SuperPOLL!</h2>
-  <form>
-    <div>
-      <% for (const rank of ranks) { %>
-        <br/>
-          <%= rank.optiontitle %>
-          <%= rank.sum %>
-      <% } %>
-    </div>
-    <div>
-      <% for (const user of users) { %>
-        <br/>
-          <%= user.name %>
-          <%= user.rank %>
-          <%= user.optiontitle %>
 
-      <% } %>
+  <div id="poll-winner">The Results</div>
+  <form>
+    <div id="poll-container">
+      <div id="poll-winner-container">
+      </div>
+
+      <div id="ranks">
+        <% for (const rank of ranks) { %>
+          <br>
+          <div><strong><%= rank.optiontitle %></strong> Rank of:  <%= rank.sum %> </div>
+          <div></div>
+          <% } %>
+      </div>
+    </div>
+    <br>
+    <div class="results-container">
+      <div id="votes"> Who voted for what...</div>
+      <br>
+      <% for (const user of users) { %>
+        <div class="results">
+          <div id="user-name">* <%= user.name %> </div>
+          <div id="user-optiontitle"><%= user.optiontitle %> </div>
+          <div id="user-rank"><%= user.rank %></div>
+        </div>
+        <br>
+        <% } %>
     </div>
   </form>
 

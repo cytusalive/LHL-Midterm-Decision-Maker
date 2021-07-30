@@ -1,34 +1,77 @@
-/* * * ELEMENTS * * */
-body {
-  font-family: 'Baloo Chettan 2', Georgia, 'Times New Roman', Times, serif;
-  color: rgba(0, 0, 0, 0.76);
-}
-
-h2 {
- margin: 1.5em;
- font-size: 2em;
-}
-
-label {
-  font-size: 1.25em;
-}
-input {
-  height: 2.5em;
-  border-radius: 5px;
-  border-width: 1px;
-  border-color: #e3b049;
-  opacity: 75%;
-  box-shadow: 2px 2px grey;
-  font-size: 1.25em;
-}
-
-input:hover {
-  background-color: #e2c895;
-}
-
-
-.temp-buttons {
+form {
   display: flex;
+}
+
+#poll-winner-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#poll-container {
+  width: 75%;
+  display: inline-flex;
+  justify-content: center;
+
+}
+
+#poll-winner {
+  display: flex;
+  width: 75%;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 2em;
+
+}
+
+#ranks {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2em;
+}
+
+strong {
+  color: #e3b049;
+}
+.results-container {
   width: 25%;
-  justify-content: space-evenly;
+  margin-left: 1em;
+  padding: 1em;
+}
+
+.results {
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+#votes {
+  width: 60%;
+  margin-bottom: .5em;
+  border-bottom: solid;
+  padding: .5em;
+}
+#user-name {
+  display: flex;
+  flex-direction: row;
+  padding: .5em;
+}
+
+#user-rank {
+  display: flex;
+  flex-direction: row;
+  border-style: solid black;
+  border-bottom: 1px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  padding: .5em;
+}
+
+#user-optiontitle {
+  display: flex;
+  flex-direction: row;
+  padding: .5em;
 }
