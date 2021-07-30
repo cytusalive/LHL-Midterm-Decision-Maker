@@ -20,8 +20,7 @@ SuperPOLLs - Decision Maker
 4. Fix to binaries for sass: `npm rebuild node-sass`
 5. Reset database: `npm run db:reset`
   - Check the db folder to see what gets created and seeded in the SDB
-7. Run the server: `npm run local`MAILGUN=f97f83ce6ffac7186f124feb808a915d-a0cfb957-4799733f
-DOMAIN=sandbox2985460cc138402a9b650f331d781338.mailgun.org
+7. Run the server: `npm run local`
   - Note: nodemon is used, so you should not have to restart your server
 8. Visit `http://localhost:8080/`
 9. To use mailgun feature to send submission and result links to your email, run `npm install mailgun-js` and add mailgun api key to `.env`
