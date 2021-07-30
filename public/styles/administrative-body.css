@@ -98,3 +98,8 @@ strong {
   flex-direction: row;
   padding: .5em;
 }
+
+.votes-container {
+  display: flex;
+  flex-direction: column-reverse;
+}
