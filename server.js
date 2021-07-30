@@ -37,13 +37,7 @@ const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 const submissionRoutes = require('./routes/submission')
 const administrativeRoutes = require('./routes/administrative')
-const administrativeBackEnd = require('./routes/administrativeBackEnd')
-const submissionBackEnd = require('./routes/submissionBackEnd')
-const indexRoutes = require('./routes/index');
 const indexBackEnd = require('./routes/indexBackEnd');
-
-
-
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -51,9 +45,6 @@ app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use('/submission', submissionRoutes(db));
 app.use('/administrative', administrativeRoutes(db));
-app.use('/administrative', administrativeBackEnd(db));
-app.use('/submission', submissionBackEnd(db));
-app.use('/', indexRoutes(db));
 app.use('/', indexBackEnd(db));
 
 

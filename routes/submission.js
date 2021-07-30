@@ -5,13 +5,12 @@ module.exports = (db) => {
 
   // renders submission.ejs in submissions/id dynamically
   router.get("/:id", (req, res) => {
-    db.query(`SELECT id, poll_title FROM poll WHERE submit_link LIKE '%${req.params.id}%'`)
+    db.query(`SELECT id, poll_title FROM poll WHERE submit_link LIKE $1`, [`%${req.params.id}%`])
     .then (result => {
       const poll_title = result.rows[0].poll_title;
-      db.query(`SELECT * FROM poll_options WHERE poll_id = ${result.rows[0].id}`)
+      db.query(`SELECT * FROM poll_options WHERE poll_id = $1`, [`${result.rows[0].id}`])
       .then(result => {
         const templateVars = {options: result.rows, poll_title: poll_title};
-        console.log(templateVars.options)
         res.render('submission', templateVars);
       });
     })
@@ -27,13 +26,11 @@ module.exports = (db) => {
     const pollOptions = req.body.optionRanks;
     const username = req.body.$username;
     const name = username.replace('username=','');
-    console.log('req.params.id', req.query);
-
 
     db.query(`
-      INSERT INTO users (name) VALUES ('${name}')
+      INSERT INTO users (name) VALUES ($1)
       RETURNING id;
-      `)
+      `, [`${name}`])
       .then((result) => {
         console.log('req.params.id', req.params.id);
         const userid = result.rows[0]['id']
@@ -41,8 +38,8 @@ module.exports = (db) => {
           let rank = Number(option[1]);
           const pollOption_id = Number(option[0]);
           db.query(`
-          INSERT INTO poll_votes (user_id, pollOptions_id, rank) VALUES (${userid}, ${pollOption_id}, ${rank})
-          `)
+          INSERT INTO poll_votes (user_id, pollOptions_id, rank) VALUES ($1, $2, $3)
+          `, [`${userid}`, `${pollOption_id}`, `${rank}`])
         });
       })
   })
