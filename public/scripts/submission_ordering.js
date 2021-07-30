@@ -14,6 +14,12 @@ $(document).ready(() => {
     console.log($username);
 
     $.post("/submission", {optionRanks, $username}, () => {})
+    $(".submission-form").remove();
+    $("body").append(`
+      <span class="submission-message">
+        Your submission has been recorded. Thank you for using SuperPOLLs!
+      </span>
+    `);
   });
 
 })

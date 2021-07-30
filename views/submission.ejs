@@ -27,6 +27,7 @@
   <h2 id="vote">Vote on a SuperPOLL!</h2>
 
   <form class="submission-form" action="/submission" method="POST">
+
     <div id="poll-title">
       <div id='selected-title'><%= poll_title %></div>
       <p id="instructions">drag to your desired order from top to bottom</p>
@@ -35,8 +36,8 @@
     <div id="choices">
       <% for (const option of options) { %>
           <div class="option" id=<%= option.id %>>
-            <%= option.optiontitle %> <div></div>
-            <%= option.optiondesc %>
+             <div class="option_title"><b><%= option.optiontitle %></b></div>
+             <div class="option_desc"><%= option.optiondesc %></div>
           </div>
       <% } %>
     </div>
@@ -50,20 +51,6 @@
         <button class="buttons" id="submit-button" type="submit">Submit votes</button>
       </div>
   </form>
-
-
-    <!-- buttons for ease of access to administrative page and submission page, delete these later -->
-    <br/>
-    <div class="temp-buttons">
-      <form method="GET" action="/"> <!-- Delete Button on same line 'td' as urls -->
-        <button type = 'submit'>home</button>
-      </form>
-      <form method="GET" action="/administrative/123"> <!-- Delete Button on same line 'td' as urls -->
-        <button type = 'submit'>administrative</button>
-      </form>
-  </div>
-    <!-- Delete these buttons later -->
-
 
 </body>
 </html>

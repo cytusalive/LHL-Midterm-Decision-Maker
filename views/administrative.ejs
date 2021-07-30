@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>SuperPOLLs - Vote on a Poll</title>
+  <title>SuperPOLLs - View Results</title>
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -23,24 +23,42 @@
 <body>
   <%- include('partials/nav-bar.ejs') %>
   <h2>View Results of your SuperPOLL!</h2>
-  <form>
-    <div>
-      <% for (const rank of ranks) { %>
-        <br/>
-          <%= rank.optiontitle %>
-          <%= rank.sum %>
-      <% } %>
-    </div>
-    <div>
-      <% for (const user of users) { %>
-        <br/>
-          <%= user.name %>
-          <%= user.rank %>
-          <%= user.optiontitle %>
 
-      <% } %>
+  <form>
+    <div id="poll-container">
+      <div id="poll-winner-container">
+        <div id="poll-winner">The Results</div>
+      </div>
+
+      <div id="ranks">
+        <% for (const rank of ranks) { %>
+          <br>
+          <div><strong><%= rank.optiontitle %></strong> Rank of:  <%= rank.sum %> </div>
+          <div></div>
+          <% } %>
+      </div>
+    </div>
+    <br>
+    <div class="results-container">
+      <div id="votes"> The Details</div>
+      <div id="votes-container">
+        <div id="votes-header">
+          <div>User</div>
+          <div>Subject</div>
+          <div>Rank</div>
+        </div>
+      <br>
+      <% for (const user of users) { %>
+        <div class="results">
+          <div id="user-name"><%= user.name %> </div>
+          <div id="user-optiontitle"><%= user.optiontitle %> </div>
+          <div id="user-rank"><%= user.rank %></div>
+        </div>
+        <br>
+        <% } %>
     </div>
   </form>
+<<<<<<< HEAD
 
     <!-- buttons for ease of access to administrative page and submission page, delete these later -->
     <br/>
@@ -56,5 +74,8 @@
 
 
 
+=======
+    <script src="/scripts/admin.js"></script>
+>>>>>>> e88b146dbe200eee548d0733764fd083de8dda5b
 </body>
 </html>

@@ -23,7 +23,7 @@ module.exports = (db) => {
   });
 
   router.post("/", (req, res) => {
-   
+
     const pollOptions = req.body.optionRanks;
     const username = req.body.$username;
     const name = username.replace('username=','');
@@ -49,21 +49,3 @@ module.exports = (db) => {
 
   return router;
 };
-
-
-// DROP TABLE IF EXISTS poll_options CASCADE;
-// CREATE TABLE poll_options (
-//   id SERIAL PRIMARY KEY NOT NULL,
-//   poll_id INTEGER REFERENCES poll(id) ON DELETE CASCADE,
-//   optionTitle VARCHAR(255) NOT NULL CHECK(optionTitle != ''),
-//   optionDesc TEXT
-// );
-
-// DROP TABLE IF EXISTS poll CASCADE;
-// CREATE TABLE poll (
-//   id SERIAL PRIMARY KEY NOT NULL,
-//   admin_link VARCHAR(255),
-//   submit_link VARCHAR(255),
-//   owner_email VARCHAR(255),
-//   poll_title VARCHAR(255)
-// );
