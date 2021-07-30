@@ -14,18 +14,18 @@ module.exports = (db) => {
     const newLink = generateRandomString()
     db.query(`
       INSERT INTO poll (admin_link, submit_link, owner_email, poll_title)
-      VALUES ('http://localhost:8080/administrative/${newLink}', 'http://localhost:8080/submission/${newLink}', '${req.body['owner_email']}', '${req.body['poll_title']}');
-      `)
+      VALUES ($1, $2, $3, $4);
+      `, [`http://localhost:8080/administrative/${newLink}`, `http://localhost:8080/submission/${newLink}`, `${req.body['owner_email']}`, `${req.body['poll_title']}`])
     .then(() => {
       const poll_options = req.body['poll_options'];
       const poll_option_descs = req.body['option_desc'];
       for (let i=0; i<poll_options.length; i++) {
         db.query(`
           INSERT INTO poll_options (poll_id, optionTitle, optionDesc)
-          SELECT poll.id, '${poll_options[i]}', '${poll_option_descs[i]}'
+          SELECT poll.id, $1, $2
           FROM poll
-          WHERE admin_link LIKE '%${newLink}%'
-        `)
+          WHERE admin_link LIKE $3
+        `, [`${poll_options[i]}`, `${poll_option_descs[i]}`, `%${newLink}%`])
       }
     })
     .catch(err => {
