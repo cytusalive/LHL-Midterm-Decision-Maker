@@ -90,8 +90,3 @@
   margin-top: 2em;
   font-size: 2em;
 }
-
-.ui-sortable {
-  display: flex;
-  flex-direction: column-reverse;
-}

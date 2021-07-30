@@ -7,7 +7,7 @@ $(document).ready(() => {
     let itemOrder = $('#choices').sortable("toArray");
     optionRanks = [];
     for (let i = 0; i < itemOrder.length; i++){
-      optionRanks.push([itemOrder[i], i]);
+      optionRanks.push([itemOrder[i], itemOrder.length - 1 - i]);
     }
     console.log(optionRanks);
     let $username = $('#username').serialize();
