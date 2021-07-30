@@ -1,32 +1,40 @@
-/* * * ELEMENTS * * */
-body {
-  font-family: 'Baloo Chettan 2', Georgia, 'Times New Roman', Times, serif;
-  color: rgba(0, 0, 0, 0.76);
+#poll-name-input {
+  width: 75%;
+}
+#add-option {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-bottom: 3em;
+}
+#add-button {
+  border-radius: 10px;
+  border-color: white;
+  background-color: #e3b049;
 }
 
-h2 {
- margin: 1.5em;
- font-size: 2em;
+#email-field {
+  width: 100%;
+  height: 2em;
+  margin-bottom: 2.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
-label {
-  font-size: 1.25em;
+#submit-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-bottom: 1em;
 }
 
-input {
-  height: 2.5em;
-  border-radius: 5px;
-  border-width: 1px;
-  border-color: #e3b049;
-  opacity: 75%;
-  box-shadow: 2px 2px grey;
-  font-size: 1.25em;
-  padding: 0.5em;
-}
-
-
-input:hover {
-  background-color: #e2c895;
+#submit-button {
+  border-radius: 10px;
+  border-color: white;
+  background-color: lightskyblue;
+  box-shadow: gray;
 }
 
 .poll-creation {
@@ -46,10 +54,6 @@ input:hover {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-
-#poll-name-input {
-  width: 75%;
 }
 
 .option-fields {
@@ -79,13 +83,6 @@ input:hover {
   width: 48%;
 }
 
-#add-option {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  margin-bottom: 3em;
-
-}
 
 .buttons {
   color: white;
@@ -98,39 +95,38 @@ input:hover {
   box-shadow: 5px 5px #AEB1CC;
 }
 
-#add-button {
-  border-radius: 10px;
-  border-color: white;
-  background-color: #e3b049;
-
-}
-
-#email-field {
-  width: 100%;
-  height: 2em;
-  margin-bottom: 2.5em;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-#submit-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  margin-bottom: 1em;
-}
-
-#submit-button {
-  border-radius: 10px;
-  border-color: white;
-  background-color: lightskyblue;
-  box-shadow: gray;
-}
 
 .temp-buttons {
   display: flex;
   width: 25%;
   justify-content: space-evenly;
+}
+
+body {
+  font-family: 'Baloo Chettan 2', Georgia, 'Times New Roman', Times, serif;
+  color: rgba(0, 0, 0, 0.76);
+}
+
+h2 {
+ margin: 1.5em;
+ font-size: 2em;
+}
+
+label {
+  font-size: 1.25em;
+}
+
+input {
+  height: 2.5em;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: #e3b049;
+  opacity: 75%;
+  box-shadow: 2px 2px grey;
+  font-size: 1.25em;
+  padding: 0.5em;
+}
+
+input:hover {
+  background-color: #e2c895;
 }

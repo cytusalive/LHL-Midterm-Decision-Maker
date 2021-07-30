@@ -1,56 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>SuperPOLLs - Vote on a Poll</title>
-
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/body.css" type="text/css" >
-  <link rel="stylesheet" href="/styles/submission-body.css" type="text/css" >
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&display=swap" rel="stylesheet">
-
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <!-- <script type="text/javascript" src="/scripts/app.js"></script> -->
-
-  <script type="text/javascript" src="/scripts/submission_ordering.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-</head>
-<body>
-  <%- include('partials/nav-bar.ejs') %>
-  <h2 id="vote">Vote on a SuperPOLL!</h2>
-
-  <form class="submission-form" action="/submission" method="POST">
-
-    <div id="poll-title">
-      <div id='selected-title'><%= poll_title %></div>
-      <p id="instructions">drag to your desired order from top to bottom</p>
-    </div>
-
-    <div id="choices">
-      <% for (const option of options) { %>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperPOLLs - Vote on a Poll</title>
+  <!-- LINKS -->
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/body.css" type="text/css" >
+    <link rel="stylesheet" href="/styles/submission-body.css" type="text/css" >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&display=swap" rel="stylesheet">
+  <!-- SCRIPTS -->
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/submission_ordering.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  </head>
+  <body>
+    <!-- NAV BAT -->
+    <%- include('partials/nav-bar.ejs') %>
+    <!-- BODY TITLE -->
+    <h2 id="vote">Vote on a SuperPOLL!</h2>
+    <form class="submission-form" action="/submission" method="POST">
+  <!-- POLL TITLE -->
+      <div id="poll-title">
+        <div id='selected-title'><%= poll_title %></div>
+        <p id="instructions">drag to your desired order from top to bottom</p>
+      </div>
+  <!-- CHOICES FIELDS -->
+      <div id="choices">
+        <% for (const option of options) { %>
           <div class="option" id=<%= option.id %>>
-             <div class="option_title"><b><%= option.optiontitle %></b></div>
-             <div class="option_desc"><%= option.optiondesc %></div>
+            <div class="option_title"><b><%= option.optiontitle %></b></div>
+            <div class="option_desc"><%= option.optiondesc %></div>
           </div>
-      <% } %>
-    </div>
-
+        <% } %>
+      </div>
+<!-- NAME FIELD -->
       <div id="username-input">
         <label id="username-label" for="username">Please provide your name: </label>
         <input id="username" class="input-fields" type="text" name="username" placeholder="name">
       </div>
-
+<!-- SUBMIT SECTION -->
       <div id="submit-container">
         <button class="buttons" id="submit-button" type="submit">Submit votes</button>
       </div>
-  </form>
-
-</body>
+    </form>
+  </body>
 </html>

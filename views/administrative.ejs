@@ -1,54 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>SuperPOLLs - View Results</title>
-
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/body.css" type="text/css" >
-  <link rel="stylesheet" href="/styles/administrative-body.css" type="text/css" >
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&display=swap" rel="stylesheet">
-
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-
-</head>
-
-<body>
-  <%- include('partials/nav-bar.ejs') %>
-  <h2>View Results of your SuperPOLL!</h2>
-
-  <form>
-    <div id="poll-container">
-      <div id="poll-winner-container">
-        <div id="poll-winner">The Results</div>
-      </div>
-
-      <div id="ranks">
-        <% for (const rank of ranks) { %>
-          <br>
-          <div><strong><%= rank.optiontitle %></strong> Rank of:  <%= rank.sum %> </div>
-          <div></div>
-          <% } %>
-      </div>
-    </div>
-    <br>
-    <div class="results-container">
-      <div id="votes"> The Details</div>
-      <div id="votes-container">
-        <div id="votes-header">
-          <div>user</div>
-          <div>subject</div>
-          <div>rank</div>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperPOLLs - View Results</title>
+  <!-- LINKS -->
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/body.css" type="text/css" >
+    <link rel="stylesheet" href="/styles/administrative-body.css" type="text/css" >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&display=swap" rel="stylesheet">
+  <!-- SCRIPTS -->
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  </head>
+  <body>
+<!-- NAV BAR -->
+    <%- include('partials/nav-bar.ejs') %>
+<!-- BODY TITLE -->
+    <h2>View Results of your SuperPOLL!</h2>
+    <form>
+<!-- RESULTS CONTAINER -->
+      <div id="poll-container">
+        <div id="poll-winner-container">
+          <div id="poll-winner">The Results</div>
         </div>
+        <div id="ranks">
+          <% for (const rank of ranks) { %>
+            <br>
+            <div><strong><%= rank.optiontitle %></strong> Rank of:  <%= rank.sum %> </div>
+            <div></div>
+          <% } %>
+        </div>
+      </div>
       <br>
-      <% for (const user of users) { %>
+<!-- DETAILS CONTAINER -->
+      <div class="results-container">
+        <div id="votes"> The Details</div>
+        <div id="votes-container">
+          <div id="votes-header">
+            <div>user</div>
+            <div>subject</div>
+            <div>rank</div>
+          </div>
+        <br>
+<!-- POLL DATA -->
+        <% for (const user of users) { %>
         <div class="results">
           <div id="user-name"><%= user.name %> </div>
           <div id="user-optiontitle"><%= user.optiontitle %> </div>
@@ -56,7 +55,7 @@
         </div>
         <br>
         <% } %>
-    </div>
-  </form>
-</body>
+      </div>
+    </form>
+  </body>
 </html>

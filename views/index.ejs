@@ -1,36 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>SuperPOLLs - Create Your Own Poll!</title>
-
+<!-- LINKS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/body.css" type="text/css" >
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&display=swap" rel="stylesheet">
-
+<!-- SCRIPTS -->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <!-- <script type="text/javascript" src="/scripts/app.js"></script> -->
     <script type="text/javascript" src="/scripts/add_option.js"></script>
   </head>
-
   <body>
-
+<!-- NAV BAR -->
     <%- include('partials/nav-bar.ejs') %>
+<!-- BODY TITLE -->
     <h2>Create your own SuperPOLL!</h2>
     <form action="/" method="POST" class="poll-creation">
-
       <div class="poll-name">
         <label for="poll-title">Poll Name:</label>
         <input class="input-fields" type="text" required name="poll_title" placeholder="What is your poll about?">
       </div>
-
+<!-- OPTIONS FIELDS 1-->
       <div id="outer-option-fields">
         <div class="option-fields">
           <label for="options-label">Option 1:</label>
@@ -39,7 +35,7 @@
             <input class="description-field" type="text" name="option_desc" placeholder="description (optional)">
           </div>
         </div>
-
+<!-- OPTION FIELDS 2 -->
         <div class="option-fields">
           <label for="options-label">Option 2:</label>
           <div class="options-input">
@@ -48,22 +44,19 @@
           </div>
         </div>
       </div>
-
-
+<!-- ADD OPTIONS -->
       <div id="add-option">
         <button class="buttons" id="add-button" type="button">Add Option...</button>
       </div>
-
+<!-- EMAIL FIELD -->
       <div id="email-field">
         <label for="owner_email">Email: </label>
         <input class="input-fields" type="email" required name="owner_email" placeholder="someone@something.com">
       </div>
-
+<!-- SUBMIT SECITON -->
       <div id="submit-container">
         <button class="buttons" id="submit-button" type="submit">Submit</button>
       </div>
-
     </form>
-
   </body>
 </html>
